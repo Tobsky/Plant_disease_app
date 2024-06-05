@@ -45,5 +45,5 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 
 ## License
 This project is licensed under the MIT License.
-    ```css
+    ```bash
     This README provides an overview of the application, installation instructions, usage guide, and information on how to add images and contribute to the project. The comments added to the code help explain each section and its purpose, making it easier to understand and maintain. &#8203;:citation[oaicite:0]{index=0}&#8203;
