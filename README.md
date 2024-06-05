@@ -3,6 +3,7 @@
 This repository contains a Streamlit web application for classifying plant diseases using deep learning models. 
 The app allows users to upload an image of a plant leaf and select from multiple pre-trained models to classify 
 the disease present in the leaf.
+Each pre-trained model was trained using transfer learning on the plant village dataset and an ensemble technique called differential evolution was used to combine the models to get a better prediction and also to make the predictions stable.
 
 ## Features
 
