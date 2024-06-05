@@ -15,7 +15,7 @@ the disease present in the leaf.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/plant-disease-classification.git
+   git clone https://github.com/Tobsky/Plant_disease_app.git
 
 2. Navigate to the project directory:
     cd plant-disease-classification
