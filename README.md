@@ -29,6 +29,7 @@ Each pre-trained model was trained using transfer learning on the plant village 
 ## Usage
 
 Run the Streamlit app:
+    ```bash
     streamlit run main.py
 
 ## Models
