@@ -27,16 +27,17 @@ for station in data:
     location = (station['latitude'], station['longitude'])
     folium.Marker(location, popup=station['name']).add_to(map)
 
-st_folium(map, width=1000, height=400)
+col1, col2, col3 = st.columns([0.5, 5, 0.5])  # Divide page into columns
 
-col1, col2, col3 = st.columns([1, 3, 1])  # Divide page into columns
 # # Set title
 col2.title('Plant Disease Recognition')
 
+with col2:
+    st_folium(map, width=1300, height=400)
 
-st.sidebar.subheader("Input")
-#  Set Header
-# st.header('Please select a model')
+
+
+st.sidebar.subheader("Input")  #  Set Sub-header
 
 # List of models
 models_list = ['EfficientNet', 'MobileNet', 'Inception', 'Differential Evolution']
@@ -63,38 +64,38 @@ model3 = load_model3()
 #  display Image
 if file is not None:
     image = Image.open(file)
-    col2.image(image, width = 500)
+    col2.image(image, width = 500, use_column_width = True)
 
     if selectEnsemble == 'EfficientNet':
         #  Clasify Image
         class_name, conf_score = classify(image, model1, CLASS_NAMES, image_size_Eff)
 
         # write classification
-        col2.write("## {}".format(class_name))
-        col2.write("### Confidence score {:.2f}%".format(conf_score))
+        col2.success("#### {}".format(class_name))
+        col2.success("#### Score for EfficientNet {:.2f}%".format(conf_score))
     
     elif selectEnsemble == 'MobileNet':
         #  Clasify Image
         class_name, conf_score = classify(image, model2, CLASS_NAMES, image_size_Mob)
 
         # write classification
-        st.write("## {}".format(class_name))
-        st.write("### score for MobileNet {:.2f}%".format(conf_score))
+        col2.success("## {}".format(class_name))
+        col2.success("### score for MobileNet {:.2f}%".format(conf_score))
 
     elif selectEnsemble == 'Inception':
         #  Clasify Image
         class_name, conf_score = classify(image, model3, CLASS_NAMES, image_size_Incep)
 
         # write classification
-        st.write("## {}".format(class_name))
-        st.write("### score for Inception {:.2f}%".format(conf_score))
+        col2.success("## {}".format(class_name))
+        col2.success("### score for Inception {:.2f}%".format(conf_score))
 
     elif selectEnsemble == 'Differential Evolution':
         #  Clasify Image
         class_name, conf_score = classify2(image, model1, model2, model3, CLASS_NAMES, image_size_Eff, image_size_Mob, image_size_Incep)
 
         # write classification
-        st.write("## {}".format(class_name))
-        st.write("### score for Differential Evolution {:.2f}%".format(conf_score))
+        col2.success("## {}".format(class_name))
+        col2.success("### score for Differential Evolution {:.2f}%".format(conf_score))
 else:
-    st.info("Awaiting the upload of the input image")
+    col2.info("Awaiting the upload of the input image")
